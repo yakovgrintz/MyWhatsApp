@@ -2,24 +2,29 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 
 public class MySelenium {
     ChromeDriver driver;
     public final String WHATSAPP_URL_HOME_PAGE = "https://web.whatsapp.com/";
 
     public MySelenium(ListOfConatants listOfConatants, String message) {
-        this.driver = new ChromeDriver();
-        connectToWhatsApp();
+        ChromeOptions options = new ChromeOptions();
+        options.addArguments("user-data-dir=C:/Users/User/AppData/Local/Google/Chrome/User Data");
+        this.driver = new ChromeDriver(options);
+        driver.get(WHATSAPP_URL_HOME_PAGE);
+
+        //connectToWhatsApp();
         for (int i = 0; i < listOfConatants.size(); i++) {
             PhoneNumberIL temp = listOfConatants.getConants(i);
             try {
                 driver.get(temp.getUrlToSend());
-                driver.findElement(By.cssSelector("#main > footer > div._2BU3P.tm2tP.copyable-area > div > span:nth-child(2) >" +
-                        " div > div._2lMWa > div.p3_M1" +
-                        " > div > div._13NKt.copyable-text.selectable-text")).sendKeys(message + Keys.ENTER);
-
+                Thread.sleep(15 * 1000);
+                driver.findElement(By.cssSelector("#main > footer > div._2BU3P.tm2tP.copyable-area > div > span:nth-child(2) > div > div._2lMWa > div.p3_M1 > div > div._13NKt.copyable-text.selectable-text")).sendKeys(message + Keys.ENTER);
+                System.out.println(checkStatus());
             } catch (Exception e) {
                 temp.setCanToSend(false);
+                System.out.println("yakov");
             }
 
         }
@@ -67,5 +72,20 @@ public class MySelenium {
 
     public ChromeDriver getDriver() {
         return driver;
+    }
+    public int checkStatus(){
+        WebElement status = this.driver.findElement(By.cssSelector("#main > div._2gzeB > div > div._33LGR > div._3K4-L > div:nth-child(24) > div > div.Nm1g1._22AX6 > div._22Msk > div._1beEj > div > div > span"));
+        String statusAttribute= status.getAttribute("aria-label");
+        System.out.println(statusAttribute);
+        if (statusAttribute==" נקראה "){
+            return 1;
+        }
+        if (statusAttribute==" נמסרה "){
+            return 2;
+        }
+        if (statusAttribute==" נשלחה "){
+            return 3;
+        }
+        return -1;
     }
 }
