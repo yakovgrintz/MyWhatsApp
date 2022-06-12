@@ -4,11 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3ef93f82-0622-4255-b330-4af5df9028ce" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="3ef93f82-0622-4255-b330-4af5df9028ce" name="Changes" comment="11:50&#10;09/06/2022">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/MySelenium.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MySelenium.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/SeleniumMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SeleniumMain.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -73,8 +71,15 @@
       <option name="presentableId" value="Default" />
       <updated>1654525170077</updated>
       <workItem from="1654525173671" duration="7883000" />
-      <workItem from="1654760395521" duration="3919000" />
+      <workItem from="1654760395521" duration="6621000" />
     </task>
+    <task id="LOCAL‎00001" summary="11:50&#10;09/06/2022">
+      <created>1654764615788</created>
+      <option name="number" value="LOCAL‎00001" />
+      <option name="presentableId" value="LOCAL‎00001" />
+      <updated>1654764615788</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -90,5 +95,9 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="11:50&#10;09/06/2022" />
+    <option name="LAST_COMMIT_MESSAGE" value="11:50&#10;09/06/2022" />
   </component>
 </project>

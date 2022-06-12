@@ -4,6 +4,9 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 
+import java.util.LinkedList;
+import java.util.List;
+
 public class MySelenium {
     ChromeDriver driver;
     public final String WHATSAPP_URL_HOME_PAGE = "https://web.whatsapp.com/";
@@ -73,19 +76,28 @@ public class MySelenium {
     public ChromeDriver getDriver() {
         return driver;
     }
-    public int checkStatus(){
-        WebElement status = this.driver.findElement(By.cssSelector("#main > div._2gzeB > div > div._33LGR > div._3K4-L > div:nth-child(24) > div > div.Nm1g1._22AX6 > div._22Msk > div._1beEj > div > div > span"));
-        String statusAttribute= status.getAttribute("aria-label");
+
+    public int checkStatus() {
+
+        WebElement status = getLastOfMessage();
+        String statusAttribute = status.getAttribute("aria-label");
         System.out.println(statusAttribute);
-        if (statusAttribute==" נקראה "){
+        if (statusAttribute == " נקראה ") {
             return 1;
         }
-        if (statusAttribute==" נמסרה "){
+        if (statusAttribute == " נמסרה ") {
             return 2;
         }
-        if (statusAttribute==" נשלחה "){
+        if (statusAttribute == " נשלחה ") {
             return 3;
         }
         return -1;
     }
+
+    public WebElement getLastOfMessage() {
+        LinkedList<WebElement> listOfMessageInChat = (LinkedList<WebElement>) this.driver.findElements(By.className("_22msk"));
+        WebElement lastMessage = listOfMessageInChat.getLast();
+        return lastMessage;
+    }
+
 }
