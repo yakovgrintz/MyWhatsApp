@@ -10,6 +10,11 @@ import java.util.List;
 public class MySelenium {
     ChromeDriver driver;
     public final String WHATSAPP_URL_HOME_PAGE = "https://web.whatsapp.com/";
+    public MySelenium(){
+        ChromeOptions options = new ChromeOptions();
+        options.addArguments("user-data-dir=C:/Users/User/AppData/Local/Google/Chrome/User Data");
+        this.driver = new ChromeDriver(options);
+    }
 
     public MySelenium(ListOfConatants listOfConatants, String message) {
         ChromeOptions options = new ChromeOptions();
@@ -23,8 +28,12 @@ public class MySelenium {
             try {
                 driver.get(temp.getUrlToSend());
                 Thread.sleep(15 * 1000);
-                driver.findElement(By.cssSelector("#main > footer > div._2BU3P.tm2tP.copyable-area > div > span:nth-child(2) > div > div._2lMWa > div.p3_M1 > div > div._13NKt.copyable-text.selectable-text")).sendKeys(message + Keys.ENTER);
+                driver.findElement(By.className("_1LbR4")).findElement(By.className("_13NKt")).sendKeys(message + Keys.ENTER);
+                //driver.findElement(By.cssSelector("#main > footer > div._2BU3P.tm2tP.copyable-area > div > span:nth-child(2) > div > div._2lMWa > div.p3_M1 > div > div._13NKt.copyable-text.selectable-text")).sendKeys(message + Keys.ENTER);
+                Thread.sleep(1000);
                 System.out.println(checkStatus());
+                Thread.sleep(10 * 1000);
+                getAnswerMessage();
             } catch (Exception e) {
                 temp.setCanToSend(false);
                 System.out.println("yakov");
@@ -78,26 +87,55 @@ public class MySelenium {
     }
 
     public int checkStatus() {
-
-        WebElement status = getLastOfMessage();
+        WebElement status = getLastOfMessage().findElement(By.cssSelector("div._1beEj > div > div > span"));
         String statusAttribute = status.getAttribute("aria-label");
-        System.out.println(statusAttribute);
-        if (statusAttribute == " נקראה ") {
-            return 1;
-        }
-        if (statusAttribute == " נמסרה ") {
-            return 2;
-        }
-        if (statusAttribute == " נשלחה ") {
-            return 3;
+        switch (statusAttribute) {
+            case " נשלחה " -> {
+                return 3;
+            }
+            case " נמסרה " -> {
+                return 2;
+            }
+            case " נקראה " -> {
+                return 1;
+            }
         }
         return -1;
     }
 
     public WebElement getLastOfMessage() {
-        LinkedList<WebElement> listOfMessageInChat = (LinkedList<WebElement>) this.driver.findElements(By.className("_22msk"));
-        WebElement lastMessage = listOfMessageInChat.getLast();
-        return lastMessage;
+        try {
+            List<WebElement> listOfMessageInChat = this.driver.findElements(By.className("Nm1g1"));
+            WebElement lastMessage = listOfMessageInChat.get(listOfMessageInChat.size() - 1);
+            return lastMessage;
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            return null;
+        }
     }
 
+    public String getAnswerMessage() {
+        System.out.println("jj");
+        WebElement answer = getLastOfMessage();
+        System.out.println("f");
+        String whoAnswer = answer.findElement(By.cssSelector("//span")).getAttribute("aria-label");
+        System.out.println("hjklfvkf");
+        switch (whoAnswer) {
+            case "את/ה:" -> {
+                System.out.println("hhhh");
+                return "The recipient did not respond";
+            }
+            default -> {
+                String textOfMessage = answer.findElement(By.cssSelector("div._22Msk > div.copyable-text > div._1Gy50 > span.i0jNr.selectable-text.copyable-text > span")).getText();
+                System.out.println(textOfMessage);
+                return textOfMessage;
+            }
+        }
+
+    }
+    public void setDriver(){
+        ChromeOptions options = new ChromeOptions();
+        options.addArguments("user-data-dir=C:/Users/User/AppData/Local/Google/Chrome/User Data");
+        this.driver = new ChromeDriver(options);
+    }
 }

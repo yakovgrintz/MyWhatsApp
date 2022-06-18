@@ -4,9 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3ef93f82-0622-4255-b330-4af5df9028ce" name="Changes" comment="11:50&#10;09/06/2022">
+    <list default="true" id="3ef93f82-0622-4255-b330-4af5df9028ce" name="Changes" comment="11:50&#10;12/06/2022">
+      <change afterPath="$PROJECT_DIR$/src/main/java/AppPanel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/MyApp.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/WelcomePanel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/WindowApp.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/MySelenium.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MySelenium.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/SeleniumMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SeleniumMain.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -16,6 +21,7 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
@@ -72,6 +78,10 @@
       <updated>1654525170077</updated>
       <workItem from="1654525173671" duration="7883000" />
       <workItem from="1654760395521" duration="6621000" />
+      <workItem from="1655061736256" duration="209000" />
+      <workItem from="1655370115259" duration="5716000" />
+      <workItem from="1655388799147" duration="1841000" />
+      <workItem from="1655575487326" duration="3544000" />
     </task>
     <task id="LOCAL‎00001" summary="11:50&#10;09/06/2022">
       <created>1654764615788</created>
@@ -79,7 +89,13 @@
       <option name="presentableId" value="LOCAL‎00001" />
       <updated>1654764615788</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL‎00002" summary="11:50&#10;12/06/2022">
+      <created>1655061857920</created>
+      <option name="number" value="LOCAL‎00002" />
+      <option name="presentableId" value="LOCAL‎00002" />
+      <updated>1655061857920</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -98,6 +114,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="11:50&#10;09/06/2022" />
-    <option name="LAST_COMMIT_MESSAGE" value="11:50&#10;09/06/2022" />
+    <MESSAGE value="11:50&#10;12/06/2022" />
+    <option name="LAST_COMMIT_MESSAGE" value="11:50&#10;12/06/2022" />
   </component>
 </project>
