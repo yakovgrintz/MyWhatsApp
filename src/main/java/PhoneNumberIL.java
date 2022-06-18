@@ -2,7 +2,17 @@ public class PhoneNumberIL {
     private String phoneNumber;
     private String urlToSend;
     private String name;
+    private String message;
     private boolean sent;
+
+    public String getMessage() {
+        return message;
+    }
+
+    public void setMessage(String message) {
+        this.message = message;
+    }
+
     private boolean canToSend;
     public final String DEFAULT_URL_TO_SEND = "https://web.whatsapp.com/send?phone=972";
     public final int LENGTH_OF_CELLULAR_NUMBER_WITH_PREFIX = 12;

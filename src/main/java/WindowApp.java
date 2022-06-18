@@ -9,12 +9,19 @@ public class WindowApp extends JFrame implements MyApp {
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);
         this.setResizable(false);
         this.setLocationRelativeTo(null);
-        this.setVisible(true);
-        this.welcomePanel=new WelcomePanel();
-        this.appPanel=new AppPanel();
+        /*this.welcomePanel=new WelcomePanel();
         this.add(welcomePanel);
-        while (!this.welcomePanel.isVisible()){}
+        while (!this.welcomePanel.isVisible()){
+            try {
+                Thread.sleep(31*1000);
+            } catch (InterruptedException e) {
+                throw new RuntimeException(e);
+            }
+        }*/
+        this.appPanel=new AppPanel();
         this.add(this.appPanel);
+
+        this.setVisible(true);
 
     }
 

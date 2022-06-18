@@ -7,7 +7,7 @@ public class WelcomePanel extends JPanel implements MyApp {
     public WelcomePanel(){
         this.setBounds(0,0,WIDTH_OF_WINDOW,HEIGHT_OF_WINDOW);
         this.setBackground(Color.CYAN);
-        this.setVisible(true);
+        this.setLayout(null);
         JButton button = new JButton("connect to whatsapp");
         button.setBounds(500,250,100,100);
         button.addActionListener((event)->{
@@ -20,6 +20,8 @@ public class WelcomePanel extends JPanel implements MyApp {
             //this.add(new AppPanel(myDriver));
         });
         this.add(button);
+        this.setVisible(true);
+
     }
 
 
