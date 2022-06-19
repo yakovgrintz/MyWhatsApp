@@ -1,13 +1,25 @@
+import org.apache.poi.ss.usermodel.Cell;
+import org.apache.poi.ss.usermodel.Row;
+import org.apache.poi.ss.usermodel.Sheet;
+import org.apache.poi.ss.usermodel.Workbook;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableModel;
 import java.awt.*;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 public class AppPanel extends JPanel implements MyApp {
     private ListOfConatants listOfConatants;
     private JTable table;
     private Object[][] rowData;
     private JScrollPane tp;
-    public final int WIDTH_OF_BUTTON = 150, X_VAL_OF_BUTTON = 850, HEIGHT_OF_BUTTON = 100;
+    public final int NUMBER_0F_BUTTONS=6;
+    public final int WIDTH_OF_BUTTON = 150, X_VAL_OF_BUTTON = 850, HEIGHT_OF_BUTTON = HEIGHT_OF_WINDOW/NUMBER_0F_BUTTONS;
     public final String[] COLUMN_NAMES = {"Name", "Phone Number", "Meesage", "Status", "Sent With WhatsApp","Answer"};
 
     public AppPanel() {
@@ -53,6 +65,22 @@ public class AppPanel extends JPanel implements MyApp {
             new AddMessageWindow(this.listOfConatants);
         });
         this.add(setMessage);
+        JButton exportReport = new JButton("Export Report");
+        exportReport.setBounds(X_VAL_OF_BUTTON, setMessage.getY()+HEIGHT_OF_BUTTON,WIDTH_OF_BUTTON,HEIGHT_OF_BUTTON);
+        exportReport.addActionListener((event)->{
+            try {
+                exportToExcel(table);
+            } catch (Exception e) {
+                throw new RuntimeException(e);
+            }
+        });
+        JButton addListContant = new JButton("Add List Of Contants");
+        addListContant.setBounds(X_VAL_OF_BUTTON, exportReport.getY()+HEIGHT_OF_BUTTON,WIDTH_OF_BUTTON,HEIGHT_OF_BUTTON);
+        addListContant.addActionListener((event)->{
+            new AddListOfContact(listOfConatants);
+        });
+        this.add(exportReport);
+        this.add(addListContant);
         this.setVisible(true);
 
     }
@@ -85,5 +113,41 @@ public class AppPanel extends JPanel implements MyApp {
                }
            }
         }).start();
+    }
+    private void exportToExcel(JTable table) throws Exception {
+        TableModel model = table.getModel();
+        Workbook workbook = new XSSFWorkbook();
+        Sheet sheet = workbook.createSheet();
+        Row row;
+        Cell cell;
+
+        // write the column headers
+        row = sheet.createRow(0);
+        for (int c = 0; c < model.getColumnCount(); c++) {
+            cell = row.createCell(c);
+            cell.setCellValue(model.getColumnName(c));
+        }
+
+        // write the data rows
+        for (int r = 0; r < model.getRowCount(); r++) {
+            row = sheet.createRow(r+1);
+            for (int c = 0; c < model.getColumnCount(); c++) {
+                cell = row.createCell(c);
+                Object value = model.getValueAt(r, c);
+                if (value instanceof String) {
+                    cell.setCellValue((String)value);
+                } else if (value instanceof Double) {
+                    cell.setCellValue((Double)value);
+                }
+            }
+        }
+        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
+        LocalDateTime now = LocalDateTime.now();
+        String filePath = "./Report.xlsx";
+        FileOutputStream out = new FileOutputStream(filePath);
+        workbook.write(out);
+        out.close();
+        workbook.close();
+
     }
 }

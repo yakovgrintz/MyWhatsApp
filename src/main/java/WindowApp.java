@@ -9,7 +9,7 @@ public class WindowApp extends JFrame implements MyApp {
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);
         this.setResizable(false);
         this.setLocationRelativeTo(null);
-        this.welcomePanel=new WelcomePanel();
+        /*this.welcomePanel=new WelcomePanel();
         this.add(welcomePanel);
         while (!this.welcomePanel.isVisible()){
             try {
@@ -17,7 +17,7 @@ public class WindowApp extends JFrame implements MyApp {
             } catch (InterruptedException e) {
                 throw new RuntimeException(e);
             }
-        }
+        }*/
         this.appPanel=new AppPanel();
         this.add(this.appPanel);
 

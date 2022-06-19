@@ -2,7 +2,7 @@ public class PhoneNumberIL {
     private String phoneNumber;
     private String urlToSend;
     private String name;
-    private String message,answer,status;
+    private String message, answer, status;
 
     private boolean sent;
 
@@ -34,18 +34,19 @@ public class PhoneNumberIL {
     public final String DEFAULT_URL_TO_SEND = "https://web.whatsapp.com/send?phone=972";
     public final int LENGTH_OF_CELLULAR_NUMBER_WITH_PREFIX = 12;
 
-    public PhoneNumberIL(String phoneNumber,String name) {
-        if (legallNumber(phoneNumber)){
-            this.phoneNumber=phoneNumber;
-            this.urlToSend=DEFAULT_URL_TO_SEND+this.phoneNumber.substring(this.phoneNumber.indexOf('5'));
-            this.name=name;
-            this.sent=false;
-            this.message ="";
+    public PhoneNumberIL(String phoneNumber, String name) {
+        if (name ==null){
+            throw new RuntimeException("Please Enter Name");
+        }
+        else if (legallNumber(phoneNumber)) {
+            this.phoneNumber = phoneNumber;
+            this.urlToSend = DEFAULT_URL_TO_SEND + this.phoneNumber.substring(this.phoneNumber.indexOf('5'));
+            this.name = name;
+            this.sent = false;
+            this.message = "";
 
 
-
-
-        }else {
+        } else {
             throw new RuntimeException("The number is incorrect. Please try again");
         }
 
