@@ -2,8 +2,25 @@ public class PhoneNumberIL {
     private String phoneNumber;
     private String urlToSend;
     private String name;
-    private String message;
+    private String message,answer,status;
+
     private boolean sent;
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    public String getAnswer() {
+        return answer;
+    }
+
+    public void setAnswer(String answer) {
+        this.answer = answer;
+    }
 
     public String getMessage() {
         return message;

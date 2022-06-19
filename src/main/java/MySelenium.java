@@ -10,9 +10,11 @@ import java.util.List;
 public class MySelenium {
     ChromeDriver driver;
     public final String WHATSAPP_URL_HOME_PAGE = "https://web.whatsapp.com/";
-    public MySelenium(){
+
+    public MySelenium() {
         ChromeOptions options = new ChromeOptions();
-        options.addArguments("user-data-dir=C:/Users/User/AppData/Local/Google/Chrome/User Data");
+        options.addArguments("user-data-dir=C:\\Users\\שלמה\\AppData\\Local\\Google\\Chrome\\User Data\\Profile 1");
+        //options.addArguments("user-data-dir=C:/Users/User/AppData/Local/Google/Chrome/User Data");
         this.driver = new ChromeDriver(options);
     }
 
@@ -31,7 +33,7 @@ public class MySelenium {
                 driver.findElement(By.className("_1LbR4")).findElement(By.className("_13NKt")).sendKeys(message + Keys.ENTER);
                 //driver.findElement(By.cssSelector("#main > footer > div._2BU3P.tm2tP.copyable-area > div > span:nth-child(2) > div > div._2lMWa > div.p3_M1 > div > div._13NKt.copyable-text.selectable-text")).sendKeys(message + Keys.ENTER);
                 Thread.sleep(1000);
-                System.out.println(checkStatus());
+                //System.out.println(checkStatus());
                 Thread.sleep(10 * 1000);
                 getAnswerMessage();
             } catch (Exception e) {
@@ -43,21 +45,20 @@ public class MySelenium {
 
 
     }
-    public void sendToList(ListOfConatants list){
+
+    public void sendToList(ListOfConatants list) {
         for (int i = 0; i < list.size(); i++) {
             PhoneNumberIL temp = list.getConants(i);
             try {
                 driver.get(temp.getUrlToSend());
-                Thread.sleep(5 * 1000);
-                driver.findElement(By.className("_1LbR4")).findElement(By.className("_13NKt")).sendKeys(temp.getMessage()+ Keys.ENTER);
+                Thread.sleep(10 * 1000);
+                driver.findElement(By.className("_1LbR4")).findElement(By.className("_13NKt")).sendKeys(temp.getMessage() + Keys.ENTER);
                 //driver.findElement(By.cssSelector("#main > footer > div._2BU3P.tm2tP.copyable-area > div > span:nth-child(2) > div > div._2lMWa > div.p3_M1 > div > div._13NKt.copyable-text.selectable-text")).sendKeys(message + Keys.ENTER);
                 Thread.sleep(1000);
                 //temp.setMessage(message);
                 temp.setSent(true);
-
-                System.out.println(checkStatus());
+                //System.out.println(checkStatus());
                 Thread.sleep(10 * 1000);
-                //getAnswerMessage();
             } catch (Exception e) {
                 temp.setCanToSend(false);
                 System.out.println("yakov");
@@ -108,28 +109,23 @@ public class MySelenium {
         return driver;
     }
 
-    public int checkStatus() {
-        WebElement status = getLastOfMessage().findElement(By.cssSelector("div._1beEj > div > div > span"));
-        String statusAttribute = status.getAttribute("aria-label");
-        switch (statusAttribute) {
-            case " נשלחה " -> {
-                return 3;
-            }
-            case " נמסרה " -> {
-                return 2;
-            }
-            case " נקראה " -> {
-                return 1;
-            }
+    public void checkAndSetStatus(PhoneNumberIL temp) {
+        String status = "";
+        try {
+            this.driver.get(temp.getUrlToSend());
+            Thread.sleep(5000);
+            status = getLastOfMessage().findElement(By.cssSelector("div._1beEj > div > div > span")).getAttribute("aria-label");
+        } catch (Exception e) {
+            throw new RuntimeException(e);
         }
-        return -1;
+        temp.setStatus(status);
     }
 
     public WebElement getLastOfMessage() {
         try {
-            List<WebElement> listOfMessageInChat = this.driver.findElements(By.className("Nm1g1"));
-            WebElement lastMessage = listOfMessageInChat.get(listOfMessageInChat.size() - 1);
-            return lastMessage;
+            List<WebElement> list = driver.findElements(By.className("_22Msk"));
+            WebElement test = list.get(list.size() - 1);
+            return test;
         } catch (Exception e) {
             System.out.println(e.getMessage());
             return null;
@@ -140,7 +136,7 @@ public class MySelenium {
         System.out.println("jj");
         WebElement answer = getLastOfMessage();
         System.out.println("f");
-        String whoAnswer = answer.findElement(By.cssSelector("//span")).getAttribute("aria-label");
+        String whoAnswer = answer.findElement(By.cssSelector("span")).getAttribute("aria-label");
         System.out.println("hjklfvkf");
         switch (whoAnswer) {
             case "את/ה:" -> {
@@ -155,9 +151,45 @@ public class MySelenium {
         }
 
     }
-    public void setDriver(){
+
+    public void setDriver() {
         ChromeOptions options = new ChromeOptions();
         options.addArguments("user-data-dir=C:/Users/User/AppData/Local/Google/Chrome/User Data");
         this.driver = new ChromeDriver(options);
+    }
+
+    private String checkAndSetAnswer(PhoneNumberIL temp) {
+        String text= null;
+        try {
+            this.driver.get(temp.getUrlToSend());
+            Thread.sleep(5000);
+            WebElement element = getLastOfMessage();
+            text = element.findElement(By.className("i0jNr")).getText();
+            if (!text.equals(temp.getMessage())){
+                temp.setAnswer(text);
+            }
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+        return text;
+    }
+
+
+
+    public void checkAnswerAndStatus(ListOfConatants list) {
+        for (int i = 0; i < list.size(); i++) {
+            try {
+                PhoneNumberIL temp = list.getConants(i);
+                if (!temp.isSent()) {
+                    continue;
+                }
+                checkAndSetStatus(temp);
+                //checkAndSetAnswer(temp);
+                Thread.sleep(5000);
+            } catch (Exception e) {
+                System.out.println(e.getMessage());
+            }
+
+        }
     }
 }

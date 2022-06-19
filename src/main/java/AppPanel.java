@@ -7,7 +7,8 @@ public class AppPanel extends JPanel implements MyApp {
     private JTable table;
     private Object[][] rowData;
     private JScrollPane tp;
-    public final String[] COLUMN_NAMES = {"Name","Phone Number","Meesage","Status","Sent With WhatsApp"};
+    public final int WIDTH_OF_BUTTON = 150, X_VAL_OF_BUTTON = 850, HEIGHT_OF_BUTTON = 100;
+    public final String[] COLUMN_NAMES = {"Name", "Phone Number", "Meesage", "Status", "Sent With WhatsApp","Answer"};
 
     public AppPanel() {
         //this.setVisible(false);
@@ -20,32 +21,32 @@ public class AppPanel extends JPanel implements MyApp {
         addContant.addActionListener((event) -> {
             new AddContactWindow(listOfConatants);
         });
-        addContant.setBounds(850, 10, 150, 90);
+        addContant.setBounds(X_VAL_OF_BUTTON, 0, WIDTH_OF_BUTTON, HEIGHT_OF_BUTTON);
         this.add(addContant);
         JButton sendToList = new JButton("Send To List");
-        sendToList.setBounds(850, 100, 150, 90);
+        sendToList.setBounds(X_VAL_OF_BUTTON, addContant.getY() + HEIGHT_OF_BUTTON, WIDTH_OF_BUTTON, HEIGHT_OF_BUTTON);
         sendToList.addActionListener((event) -> {
             DRIVER.sendToList(listOfConatants);
         });
-        JButton updateTable=new JButton("Update Table");
-        updateTable.setBounds(850, 190, 150, 90);
-        updateTable.addActionListener((event)->{
+        JButton updateTable = new JButton("Update Table");
+        updateTable.setBounds(X_VAL_OF_BUTTON, sendToList.getY() + HEIGHT_OF_BUTTON, WIDTH_OF_BUTTON, HEIGHT_OF_BUTTON);
+        updateTable.addActionListener((event) -> {
             updateTable();
         });
-        DefaultTableModel model = new DefaultTableModel(COLUMN_NAMES,0);
+        DefaultTableModel model = new DefaultTableModel(COLUMN_NAMES, 0);
         table = new JTable(model);
         table.setName("data table");
         table.setBackground(Color.white);
         tp = new JScrollPane(table);
-        tp.setSize(850, 500);
+        tp.setSize(WIDTH_OF_WINDOW-WIDTH_OF_BUTTON, HEIGHT_OF_WINDOW);
         tp.setVisible(true);
         this.add(tp);
         this.add(addContant);
         this.add(updateTable);
         this.add(sendToList);
         JButton setMessage = new JButton("Set Message");
-        setMessage.setBounds(updateTable.getX(), updateTable.getY()+ updateTable.getHeight(), updateTable.getWidth(), updateTable.getHeight());
-        setMessage.addActionListener((event)->{
+        setMessage.setBounds(X_VAL_OF_BUTTON, updateTable.getY() + HEIGHT_OF_BUTTON, WIDTH_OF_BUTTON, HEIGHT_OF_BUTTON);
+        setMessage.addActionListener((event) -> {
             new AddMessageWindow(listOfConatants);
         });
         this.add(setMessage);
@@ -61,11 +62,12 @@ public class AppPanel extends JPanel implements MyApp {
 
 
     private void updateTable() {
+        DRIVER.checkAnswerAndStatus(listOfConatants);
         DefaultTableModel model = (DefaultTableModel) table.getModel();
         model.setRowCount(0);
         for (int i = 0; i < listOfConatants.size(); i++) {
             PhoneNumberIL temp = listOfConatants.getConants(i);
-            Object[] newRow = {temp.getName(), temp.getPhoneNumber(), temp.getMessage(), null, temp.isSent()};
+            Object[] newRow = {temp.getName(), temp.getPhoneNumber(), temp.getMessage(), temp.getStatus(), temp.isSent(),temp.getAnswer()};
             model.addRow(newRow);
         }
         repaint();
