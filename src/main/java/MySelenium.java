@@ -114,15 +114,20 @@ public class MySelenium {
         try {
             this.driver.get(temp.getUrlToSend());
             Thread.sleep(5000);
-            status = getLastOfMessage().findElement(By.cssSelector("div._1beEj > div > div > span")).getAttribute("aria-label");
+            WebElement tempElement = getLastOfMessage();
+
+            try {
+                status = getLastOfMessage().findElement(By.cssSelector("div._1beEj > div > div > span")).getAttribute("aria-label");
+                temp.setStatus(status);
+            } catch (Exception e) {            }
         } catch (Exception e) {
-            throw new RuntimeException(e);
+            return;
         }
-        temp.setStatus(status);
     }
 
     public WebElement getLastOfMessage() {
         try {
+            Thread.sleep(5000);
             List<WebElement> list = driver.findElements(By.className("_22Msk"));
             WebElement test = list.get(list.size() - 1);
             return test;
@@ -159,13 +164,13 @@ public class MySelenium {
     }
 
     private String checkAndSetAnswer(PhoneNumberIL temp) {
-        String text= null;
+        String text = null;
         try {
             this.driver.get(temp.getUrlToSend());
             Thread.sleep(5000);
             WebElement element = getLastOfMessage();
             text = element.findElement(By.className("i0jNr")).getText();
-            if (!text.equals(temp.getMessage())){
+            if (!text.equals(temp.getMessage())) {
                 temp.setAnswer(text);
             }
         } catch (InterruptedException e) {
@@ -175,8 +180,10 @@ public class MySelenium {
     }
 
 
-
     public void checkAnswerAndStatus(ListOfConatants list) {
+        if (list == null) {
+            throw new RuntimeException("the list is null");
+        }
         for (int i = 0; i < list.size(); i++) {
             try {
                 PhoneNumberIL temp = list.getConants(i);
@@ -184,7 +191,7 @@ public class MySelenium {
                     continue;
                 }
                 checkAndSetStatus(temp);
-                //checkAndSetAnswer(temp);
+                checkAndSetAnswer(temp);
                 Thread.sleep(5000);
             } catch (Exception e) {
                 System.out.println(e.getMessage());
