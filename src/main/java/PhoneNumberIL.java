@@ -23,6 +23,7 @@ public class PhoneNumberIL {
             this.urlToSend=DEFAULT_URL_TO_SEND+this.phoneNumber.substring(this.phoneNumber.indexOf('5'));
             this.name=name;
             this.sent=false;
+            this.message ="";
 
 
 

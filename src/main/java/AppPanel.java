@@ -25,20 +25,13 @@ public class AppPanel extends JPanel implements MyApp {
         JButton sendToList = new JButton("Send To List");
         sendToList.setBounds(850, 100, 150, 90);
         sendToList.addActionListener((event) -> {
-            DRIVER.sendToList(listOfConatants, "test");
+            DRIVER.sendToList(listOfConatants);
         });
-        /*String[] columnNames = {"Name","Phone Number","Meesage","Status","Sent With WhatsApp"};
-        Object[][] rowData = new Object[listOfConatants.size()][columnNames.length];
-        for (int i = 0; i <listOfConatants.size() ; i++) {
-            PhoneNumberIL temp = listOfConatants.getConants(i);
-            rowData[i] = new Object[]{temp.getName(), temp.getPhoneNumber(), temp.getMessage(), null, temp.isSent()};
-        }*/
         JButton updateTable=new JButton("Update Table");
         updateTable.setBounds(850, 190, 150, 90);
         updateTable.addActionListener((event)->{
             updateTable();
         });
-        rowData= new Object[][]{{null, null, null, null, null}};
         DefaultTableModel model = new DefaultTableModel(COLUMN_NAMES,0);
         table = new JTable(model);
         table.setName("data table");
@@ -50,6 +43,12 @@ public class AppPanel extends JPanel implements MyApp {
         this.add(addContant);
         this.add(updateTable);
         this.add(sendToList);
+        JButton setMessage = new JButton("Set Message");
+        setMessage.setBounds(updateTable.getX(), updateTable.getY()+ updateTable.getHeight(), updateTable.getWidth(), updateTable.getHeight());
+        setMessage.addActionListener((event)->{
+            new AddMessageWindow(listOfConatants);
+        });
+        this.add(setMessage);
         this.setVisible(true);
 
     }
@@ -60,9 +59,6 @@ public class AppPanel extends JPanel implements MyApp {
 
     }
 
-    public static void main(String[] args) {
-        AppPanel test = new AppPanel();
-    }
 
     private void updateTable() {
         DefaultTableModel model = (DefaultTableModel) table.getModel();
@@ -72,10 +68,6 @@ public class AppPanel extends JPanel implements MyApp {
             Object[] newRow = {temp.getName(), temp.getPhoneNumber(), temp.getMessage(), null, temp.isSent()};
             model.addRow(newRow);
         }
-        //table=new JTable(rowData,COLUMN_NAMES);
-        //tp = new JScrollPane(table);
-
-
         repaint();
     }
 }

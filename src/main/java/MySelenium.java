@@ -43,16 +43,16 @@ public class MySelenium {
 
 
     }
-    public void sendToList(ListOfConatants list,String message){
+    public void sendToList(ListOfConatants list){
         for (int i = 0; i < list.size(); i++) {
             PhoneNumberIL temp = list.getConants(i);
             try {
                 driver.get(temp.getUrlToSend());
                 Thread.sleep(5 * 1000);
-                driver.findElement(By.className("_1LbR4")).findElement(By.className("_13NKt")).sendKeys(message + Keys.ENTER);
+                driver.findElement(By.className("_1LbR4")).findElement(By.className("_13NKt")).sendKeys(temp.getMessage()+ Keys.ENTER);
                 //driver.findElement(By.cssSelector("#main > footer > div._2BU3P.tm2tP.copyable-area > div > span:nth-child(2) > div > div._2lMWa > div.p3_M1 > div > div._13NKt.copyable-text.selectable-text")).sendKeys(message + Keys.ENTER);
                 Thread.sleep(1000);
-                temp.setMessage(message);
+                //temp.setMessage(message);
                 temp.setSent(true);
 
                 System.out.println(checkStatus());
