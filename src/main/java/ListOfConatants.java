@@ -14,7 +14,7 @@ public class ListOfConatants {
     public String toString() {
         String temp = "";
         for (PhoneNumberIL contact: this.list) {
-            temp=temp+"Name is :" + contact.getName()+" is Number Is: "+contact.getPhoneNumber() + " is sent : " +contact.isSent() +"./n";
+            temp=temp+"Name is :" + contact.getName()+" is Number Is: "+contact.getPhoneNumber() + " is sent : " +contact.isSent() +".\n";
 
         }
         return temp;
@@ -25,5 +25,8 @@ public class ListOfConatants {
     }
     public PhoneNumberIL getConants(int index){
         return this.list.get(index);
+    }
+    public void remove(PhoneNumberIL item){
+        this.list.remove(item);
     }
 }

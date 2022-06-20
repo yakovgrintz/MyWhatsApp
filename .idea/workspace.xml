@@ -4,19 +4,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3ef93f82-0622-4255-b330-4af5df9028ce" name="Changes" comment="19:07&#10;19/06/22">
-      <change afterPath="$PROJECT_DIR$/Excel.xlsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Report.xlsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/AddListOfContact.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/FromTextToContact.java" afterDir="false" />
+    <list default="true" id="3ef93f82-0622-4255-b330-4af5df9028ce" name="Changes" comment="23:08&#10;19/06/22">
+      <change afterPath="$PROJECT_DIR$/src/main/java/EditName.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/EditNames.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/FixNumber.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/MyAddWindow.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/Report.xlsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/AddContactWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/AddContactWindow.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/AddListOfContact.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/AddListOfContact.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/AddMessageWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/AddMessageWindow.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/AppPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/AppPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/PhoneNumberIL.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/PhoneNumberIL.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Test.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Test.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/WindowApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/WindowApp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ListOfConatants.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ListOfConatants.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/MyApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MyApp.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -44,24 +44,24 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\projects\MyWhatsApp" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.SeleniumMain">
+  <component name="RunManager" selected="Application.EditNames">
     <configuration name="AddContactWindow" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="AddContactWindow" />
       <module name="MyWhatsApp" />
@@ -83,8 +83,8 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="FromTextToContact" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="FromTextToContact" />
+    <configuration name="EditNames" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="EditNames" />
       <module name="MyWhatsApp" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -99,11 +99,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.EditNames" />
         <item itemvalue="Application.SeleniumMain" />
+        <item itemvalue="Application.AddListOfContact" />
         <item itemvalue="Application.AddMessageWindow" />
         <item itemvalue="Application.AddContactWindow" />
-        <item itemvalue="Application.AddListOfContact" />
-        <item itemvalue="Application.FromTextToContact" />
       </list>
     </recent_temporary>
   </component>
@@ -117,7 +117,8 @@
       <updated>1654525170077</updated>
       <workItem from="1654525173671" duration="7883000" />
       <workItem from="1654760395521" duration="6621000" />
-      <workItem from="1655656339463" duration="9626000" />
+      <workItem from="1655656339463" duration="9676000" />
+      <workItem from="1655722580852" duration="14240000" />
     </task>
     <task id="LOCAL‎00001" summary="11:50&#10;09/06/2022">
       <created>1654764615788</created>
@@ -137,7 +138,13 @@
       <option name="presentableId" value="LOCAL‎00003" />
       <updated>1655654881271</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL‎00004" summary="23:08&#10;19/06/22">
+      <created>1655669352422</created>
+      <option name="number" value="LOCAL‎00004" />
+      <option name="presentableId" value="LOCAL‎00004" />
+      <updated>1655669352422</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -159,6 +166,7 @@
     <MESSAGE value="11:50&#10;09/06/2022" />
     <MESSAGE value="17:35&#10;19/06/22" />
     <MESSAGE value="19:07&#10;19/06/22" />
-    <option name="LAST_COMMIT_MESSAGE" value="19:07&#10;19/06/22" />
+    <MESSAGE value="23:08&#10;19/06/22" />
+    <option name="LAST_COMMIT_MESSAGE" value="23:08&#10;19/06/22" />
   </component>
 </project>

@@ -18,8 +18,8 @@ public class AppPanel extends JPanel implements MyApp {
     private JTable table;
     private Object[][] rowData;
     private JScrollPane tp;
-    public final int NUMBER_0F_BUTTONS=6;
-    public final int WIDTH_OF_BUTTON = 150, X_VAL_OF_BUTTON = 850, HEIGHT_OF_BUTTON = HEIGHT_OF_WINDOW/NUMBER_0F_BUTTONS;
+    public final int NUMBER_0F_BUTTONS=7;
+    public final int WIDTH_OF_BUTTON = 150, X_VAL_OF_BUTTON = 850, HEIGHT_OF_BUTTON = HEIGHT_OF_WINDOW/NUMBER_0F_BUTTONS-5;
     public final String[] COLUMN_NAMES = {"Name", "Phone Number", "Meesage", "Status", "Sent With WhatsApp","Answer"};
 
     public AppPanel() {
@@ -79,6 +79,16 @@ public class AppPanel extends JPanel implements MyApp {
         addListContant.addActionListener((event)->{
             new AddListOfContact(listOfConatants);
         });
+        JButton editNames = new JButton("Edit unnamed contacts");
+        editNames.setBounds(X_VAL_OF_BUTTON, addListContant.getY()+HEIGHT_OF_BUTTON,WIDTH_OF_BUTTON,HEIGHT_OF_BUTTON);
+        editNames.addActionListener((event)->{
+            try {
+                new EditNames(listOfConatants);
+            } catch (Exception e) {
+                System.out.println(e.getMessage());
+            }
+        });
+        this.add(editNames);
         this.add(exportReport);
         this.add(addListContant);
         this.setVisible(true);
