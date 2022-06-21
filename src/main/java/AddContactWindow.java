@@ -51,11 +51,15 @@ public class AddContactWindow extends JFrame {
                 temp = new PhoneNumberIL(phoneNumber, name);
                 if (sendPrivatelyMessage.isSelected()) {
                     temp.setMessage(field3.getText());
+                    sendPrivatelyMessage.setSelected(false);
                 }
                 list.addPhoneNumberIL(temp);
             } catch (Exception e) {
+                sendPrivatelyMessage.setSelected(false);
+
                 field1.setText("");
                 field2.setText("");
+                field3.setText("");
                 JOptionPane.showMessageDialog(new JFrame(),
                         e.getMessage(),
                         "error",
@@ -64,6 +68,7 @@ public class AddContactWindow extends JFrame {
 
             field1.setText("");
             field2.setText("");
+            field3.setText("");
         });
         addToList.setBounds(50, 245, 200, 50);
         this.add(addToList);
