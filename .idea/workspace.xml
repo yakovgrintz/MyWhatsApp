@@ -4,25 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3ef93f82-0622-4255-b330-4af5df9028ce" name="Changes" comment="12:10&#10;21/06/22">
-      <change afterPath="$PROJECT_DIR$/src/main/java/AddImageButton.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/UpdateData.java" afterDir="false" />
+    <list default="true" id="3ef93f82-0622-4255-b330-4af5df9028ce" name="Changes" comment="16:58&#10;21/06/22">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Report.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/Report.xlsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/AddContactWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/AddContactWindow.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/AddListOfContact.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/AddListOfContact.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/AddMessageWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/AddMessageWindow.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/AppPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/AppPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/EditName.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/EditNames.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/EditNamesWithTable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/EditNamesWithTable.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/FixNumber.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/FixNumber.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/FromTextToContact.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/MySelenium.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MySelenium.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/PhoneNumberIL.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/PhoneNumberIL.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Test.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/WelcomePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/WelcomePanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/WindowApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/WindowApp.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -127,7 +110,7 @@
       <workItem from="1655656339463" duration="9676000" />
       <workItem from="1655722580852" duration="24237000" />
       <workItem from="1655808522073" duration="8869000" />
-      <workItem from="1655818509795" duration="1119000" />
+      <workItem from="1655818509795" duration="2515000" />
     </task>
     <task id="LOCAL‎00001" summary="11:50&#10;09/06/2022">
       <created>1654764615788</created>
@@ -189,7 +172,13 @@
       <option name="presentableId" value="LOCAL‎00010" />
       <updated>1655802610303</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL‎00011" summary="16:58&#10;21/06/22">
+      <created>1655819944873</created>
+      <option name="number" value="LOCAL‎00011" />
+      <option name="presentableId" value="LOCAL‎00011" />
+      <updated>1655819944873</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -218,7 +207,8 @@
     <MESSAGE value="03:41&#10;21/06/22" />
     <MESSAGE value="12:05&#10;21/06/22" />
     <MESSAGE value="12:10&#10;21/06/22" />
-    <option name="LAST_COMMIT_MESSAGE" value="12:10&#10;21/06/22" />
+    <MESSAGE value="16:58&#10;21/06/22" />
+    <option name="LAST_COMMIT_MESSAGE" value="16:58&#10;21/06/22" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

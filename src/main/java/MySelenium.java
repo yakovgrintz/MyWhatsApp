@@ -62,7 +62,7 @@ public class MySelenium {
                     if (temp.getPathToImage() != null) {
                         WebElement d = driver.findElement(By.className("_1un-p")).findElement(By.className("_26lC3"));
                         d.click();
-                        driver.findElement(By.className("_1HnQz")).findElement(By.cssSelector("li:nth-child(1) > button > input[type=file]")).sendKeys("C:\\Users\\שלמה\\Pictures\\Screenshots\\y.png");
+                        driver.findElement(By.className("_1HnQz")).findElement(By.cssSelector("li:nth-child(1) > button > input[type=file]")).sendKeys(temp.getPathToImage());
                         Thread.sleep(3 * 1000);
                         driver.findElement(By.className("_1VmmK")).findElement(By.className("_13NKt")).sendKeys(temp.getMessage() + Keys.ENTER);
                         continue;
