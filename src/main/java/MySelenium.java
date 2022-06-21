@@ -52,16 +52,20 @@ public class MySelenium {
             try {
                 driver.get(temp.getUrlToSend());
                 Thread.sleep(10 * 1000);
-                driver.findElement(By.className("_1LbR4")).findElement(By.className("_13NKt")).sendKeys(temp.getMessage() + Keys.ENTER);
-                //driver.findElement(By.cssSelector("#main > footer > div._2BU3P.tm2tP.copyable-area > div > span:nth-child(2) > div > div._2lMWa > div.p3_M1 > div > div._13NKt.copyable-text.selectable-text")).sendKeys(message + Keys.ENTER);
-                Thread.sleep(1000);
-                //temp.setMessage(message);
-                temp.setSent(true);
-                //System.out.println(checkStatus());
-                Thread.sleep(10 * 1000);
-            } catch (Exception e) {
+                driver.findElement(By.className("_3J6wB")).findElement(By.className("_20C5O")).click();
                 temp.setCanToSend(false);
-                System.out.println("yakov");
+            } catch (Exception e) {
+
+
+                try {
+
+                    driver.findElement(By.className("_1LbR4")).findElement(By.className("_13NKt")).sendKeys(temp.getMessage() + Keys.ENTER);
+                    Thread.sleep(1000);
+                    temp.setSent(true);
+                    Thread.sleep(10 * 1000);
+                } catch (Exception e2) {
+                    temp.setCanToSend(false);
+                }
             }
 
         }
@@ -119,7 +123,8 @@ public class MySelenium {
             try {
                 status = getLastOfMessage().findElement(By.cssSelector("div._1beEj > div > div > span")).getAttribute("aria-label");
                 temp.setStatus(status);
-            } catch (Exception e) {            }
+            } catch (Exception e) {
+            }
         } catch (Exception e) {
             return;
         }

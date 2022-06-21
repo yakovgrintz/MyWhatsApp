@@ -27,15 +27,23 @@ public class Test {
         ChromeOptions options = new ChromeOptions();
         options.addArguments("user-data-dir=C:\\Users\\שלמה\\AppData\\Local\\Google\\Chrome\\User Data\\Profile 1");
         ChromeDriver driver = new ChromeDriver(options);
-        driver.get("https://web.whatsapp.com/send?phone=972586010301");
-        BufferedImage image = ImageIO.read(new File("C:\\Users\\שלמה\\Pictures\\Screenshots\\y.png"));
+        driver.get("https://web.whatsapp.com/send?phone=972580010301");
         Thread.sleep(10 * 1000);
+        try {
+            driver.findElement(By.className("_3J6wB")).findElement(By.className("_20C5O")).click();
+            System.out.println("h");
+        } catch (Exception e) {
+
+
+        BufferedImage image = ImageIO.read(new File("C:\\Users\\שלמה\\Pictures\\Screenshots\\y.png"));
+
         WebElement d = driver.findElement(By.className("_1un-p")).findElement(By.className("_26lC3"));
         d.click();
         driver.findElement(By.className("_1HnQz")).findElement(By.cssSelector("li:nth-child(1) > button > input[type=file]")).sendKeys("C:\\Users\\שלמה\\Pictures\\Screenshots\\y.png");
         Thread.sleep(3*1000);
-        driver.findElement(By.className("_1VmmK")).findElement(By.className("_13NKt")).sendKeys("" + Keys.ENTER);
+        driver.findElement(By.className("_1VmmK")).findElement(By.className("_13NKt")).sendKeys("" + Keys.ENTER);}
 
     }
+
 
 }
