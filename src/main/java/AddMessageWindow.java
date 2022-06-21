@@ -3,20 +3,18 @@ import javax.swing.filechooser.FileSystemView;
 import java.awt.*;
 import java.util.concurrent.atomic.AtomicReference;
 
-public class AddMessageWindow extends JFrame {
+public class AddMessageWindow extends MyAddWindow {
     public final String PERSONAL_MESSAGE_NAME = "<Name>";
+    public final int REDUCTION=38, NUM_OF_ITEMS=5,START_X = 0, START_Y = 0, WIDTH = this.getWidth(), HEIGHT =(this.getHeight()-REDUCTION)/NUM_OF_ITEMS ;
+
 
     public AddMessageWindow(ListOfConatants list) {
-        this.setSize(300, 400);
-        this.setResizable(false);
-        this.setLayout(null);
-        this.setLocationRelativeTo(null);
-
+        super();
         JTextField fieldMessage = new JTextField();
         JLabel title = new JLabel("Please Enter Your Message");
-        title.setBounds(25, 25, 250, 50);
+        title.setBounds(START_X, START_Y, WIDTH, HEIGHT);
         this.add(title);
-        fieldMessage.setBounds(title.getX(), title.getY() + title.getHeight(), title.getWidth(), title.getHeight() * 2);
+        fieldMessage.setBounds(START_X, title.getY() + HEIGHT, WIDTH, HEIGHT);
         fieldMessage.setBackground(Color.white);
         this.add(fieldMessage);
         AtomicReference<String> pathToImage = new AtomicReference<String>(null);
@@ -25,6 +23,7 @@ public class AddMessageWindow extends JFrame {
 
             try {
                 setMessage(list, fieldMessage.getText(),pathToImage.get());
+                dispose();
             } catch (Exception e) {
                 JOptionPane.showMessageDialog(new JFrame(),
                         e.getMessage(),
@@ -33,34 +32,16 @@ public class AddMessageWindow extends JFrame {
             }
 
         });
-        setMessage.setBounds(title.getX(), fieldMessage.getY() + fieldMessage.getHeight(), title.getWidth(), title.getHeight());
+        setMessage.setBounds(START_X, fieldMessage.getY() + HEIGHT, WIDTH, HEIGHT);
         this.add(setMessage);
         JButton addNameToMessage= new JButton("Add Name To Message");
-        addNameToMessage.setBounds(setMessage.getX(), setMessage.getY()+ setMessage.getHeight(),setMessage.getWidth(),title.getHeight());
+        addNameToMessage.setBounds(START_X, setMessage.getY()+ HEIGHT,WIDTH,HEIGHT);
         addNameToMessage.addActionListener((event) -> {
                 fieldMessage.setText(fieldMessage.getText()+PERSONAL_MESSAGE_NAME);
 
         });
-        JButton addImage = new JButton("Add Image");
-        addImage.setBounds(addNameToMessage.getX(), addNameToMessage.getY()+ addNameToMessage.getHeight(), addNameToMessage.getWidth(), addNameToMessage.getHeight());
-        addImage.addActionListener((event)->{
-            JFileChooser j = new JFileChooser(FileSystemView.getFileSystemView().getHomeDirectory());
-
-            // invoke the showsOpenDialog function to show the save dialog
-            int r = j.showOpenDialog(null);
-
-            // if the user selects a file
-            if (r == JFileChooser.APPROVE_OPTION)
-
-            {
-                // set the label to the path of the selected file
-                pathToImage.set(j.getSelectedFile().getAbsolutePath());
-                System.out.println(pathToImage.get());
-                System.out.println(pathToImage.toString());
-            }
-
-
-        });
+        AddImageButton addImage = new AddImageButton(START_X, addNameToMessage.getY()+ HEIGHT, WIDTH, HEIGHT,pathToImage);
+        
         this.add(addNameToMessage);
         this.add(addImage);
         this.setVisible(true);
@@ -80,7 +61,6 @@ public class AddMessageWindow extends JFrame {
                 if (temp.getMessage() == ""||temp.getMessage()==null) {
 
                     String tempStr = message.replaceAll(PERSONAL_MESSAGE_NAME, temp.getName());
-                    //System.out.println(tempStr);
                     temp.setMessage(tempStr);
                     temp.setPathToImage(pathToImage);
                 }

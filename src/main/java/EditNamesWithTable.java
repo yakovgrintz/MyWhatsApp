@@ -3,26 +3,32 @@ import javax.swing.table.DefaultTableModel;
 import java.awt.*;
 import java.util.concurrent.atomic.AtomicBoolean;
 
-public class EditNamesWithTable extends MyAddWindow{
+public class EditNamesWithTable extends MyAddWindow {
     public final String[] COLUMN_NAMES = {"NAME", "PHONE_NUMBER"};
+    public final int REDUCTION=38 ,NUM_OF_ITEMS=4,START_X = 0, START_Y = 0, WIDTH = this.getWidth(), HEIGHT =(this.getHeight()-REDUCTION)/NUM_OF_ITEMS;
+
     private JTable table;
     private JScrollPane tp;
 
-    public EditNamesWithTable(ListOfConatants list){
+    public EditNamesWithTable(ListOfConatants list) {
         super();
+        JLabel instructions = new JLabel("<html>Edit the name or number by<br> changing the text in the table<br>" +
+                "Delete - Delete the entries <br> in the relevant rows<html>");
+        instructions.setBounds(START_X,START_Y,WIDTH,HEIGHT);
+        this.add(instructions);
         DefaultTableModel model = new DefaultTableModel(COLUMN_NAMES, 0);
         table = new JTable(model);
         table.setName("data table");
         table.setBackground(Color.white);
         tp = new JScrollPane(table);
-        tp.setSize(this.getWidth(), HEIGHT_OF_ADD_WINDOW/4*3);
+        tp.setBounds(START_X,START_Y+HEIGHT,WIDTH, HEIGHT*2);
         tp.setVisible(true);
         this.add(tp);
         this.setVisible(true);
         updateTable(list);
         JButton editName = new JButton("Edit Name");
-        editName.setBounds(tp.getX(),tp.getY()+tp.getHeight(), tp.getWidth(), (HEIGHT_OF_ADD_WINDOW-tp.getHeight())-10);
-        editName.addActionListener((event)->{
+        editName.setBounds(START_X, tp.getY() + tp.getHeight(), WIDTH, HEIGHT);
+        editName.addActionListener((event) -> {
             getAndSetData(list);
         });
 
@@ -31,6 +37,7 @@ public class EditNamesWithTable extends MyAddWindow{
         this.setVisible(true);
 
     }
+
     private void updateTable(ListOfConatants list) {
         DefaultTableModel model = (DefaultTableModel) table.getModel();
         model.setRowCount(0);
@@ -42,17 +49,21 @@ public class EditNamesWithTable extends MyAddWindow{
         }
         repaint();
     }
-    private void getAndSetData(ListOfConatants list){
+
+    private void getAndSetData(ListOfConatants list) {
         list.getList().clear();
         DefaultTableModel model = (DefaultTableModel) table.getModel();
         for (int i = 0; i < model.getRowCount(); i++) {
-            String name = model.getValueAt(i,0).toString();
-            if (name==null){
-                name="";
+            String name = model.getValueAt(i, 0).toString();
+            if (name == null) {
+                name = "";
             }
-            String phoneNumber = model.getValueAt(i,1).toString();
+            String phoneNumber = model.getValueAt(i, 1).toString();
+            if (name==""&&phoneNumber==""){
+                continue;
+            }
             try {
-                PhoneNumberIL temp = new PhoneNumberIL(phoneNumber,name);
+                PhoneNumberIL temp = new PhoneNumberIL(phoneNumber, name);
                 list.addPhoneNumberIL(temp);
             } catch (Exception e) {
                 throw new RuntimeException(e);
@@ -65,7 +76,7 @@ public class EditNamesWithTable extends MyAddWindow{
         ListOfConatants l = new ListOfConatants();
         l.addPhoneNumberIL(new PhoneNumberIL("0505151524", "yakov"));
         l.addPhoneNumberIL(new PhoneNumberIL("0586010301", ""));
-        l.addPhoneNumberIL(new PhoneNumberIL("0586010301",""));
+        l.addPhoneNumberIL(new PhoneNumberIL("0586010301", ""));
         EditNamesWithTable e = new EditNamesWithTable(l);
     }
 }

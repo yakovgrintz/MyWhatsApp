@@ -127,14 +127,12 @@ public class MySelenium {
     public void checkAndSetStatus(PhoneNumberIL temp) {
         String status = "";
         try {
-            this.driver.get(temp.getUrlToSend());
-            Thread.sleep(5000);
             WebElement tempElement = getLastOfMessage();
-
             try {
                 status = getLastOfMessage().findElement(By.cssSelector("div._1beEj > div > div > span")).getAttribute("aria-label");
                 temp.setStatus(status);
             } catch (Exception e) {
+                System.out.println("h");
             }
         } catch (Exception e) {
             return;
@@ -182,14 +180,13 @@ public class MySelenium {
     private String checkAndSetAnswer(PhoneNumberIL temp) {
         String text = null;
         try {
-            this.driver.get(temp.getUrlToSend());
-            Thread.sleep(5000);
             WebElement element = getLastOfMessage();
             text = element.findElement(By.className("i0jNr")).getText();
             if (!text.equals(temp.getMessage())) {
                 temp.setAnswer(text);
+                temp.setGetAnswer(true);
             }
-        } catch (InterruptedException e) {
+        } catch (Exception e) {
             throw new RuntimeException(e);
         }
         return text;
@@ -206,6 +203,11 @@ public class MySelenium {
                 if (!temp.isSent()) {
                     continue;
                 }
+                if (temp.isGetAnswer()){
+                    continue;
+                }
+                this.driver.get(temp.getUrlToSend());
+                Thread.sleep(5000);
                 checkAndSetStatus(temp);
                 checkAndSetAnswer(temp);
                 Thread.sleep(5000);

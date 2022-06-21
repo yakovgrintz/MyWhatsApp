@@ -1,19 +1,21 @@
 import javax.swing.*;
 
 public class FixNumber extends JFrame implements MyApp {
+    public final int REDUCTION=38,NUM_OF_ITEMS=3,START_X = 0, START_Y = 0, WIDTH = this.getWidth(), HEIGHT =(this.getHeight()-REDUCTION)/NUM_OF_ITEMS ;
+
     public FixNumber(ListOfConatants list,String phoneNumber){
         this.setSize(WIDTH_OF_ADD_WINDOW/2, HEIGHT_OF_ADD_WINDOW/2);
         this.setResizable(false);
         this.setLayout(null);
         this.setLocationRelativeTo(null);
         JLabel pleaseFixNumber = new JLabel("Please Fix Number");
-        pleaseFixNumber.setBounds(0, 0, this.getWidth(), 50);
+        pleaseFixNumber.setBounds(START_X, START_Y, WIDTH, HEIGHT);
         this.add(pleaseFixNumber);
         JTextField number = new JTextField(phoneNumber);
-        number.setBounds(pleaseFixNumber.getX(),pleaseFixNumber.getY()+pleaseFixNumber.getHeight(),this.getWidth(),pleaseFixNumber.getHeight());
+        number.setBounds(START_X,pleaseFixNumber.getY()+HEIGHT,WIDTH,HEIGHT);
         this.add(number);
         JButton fix = new JButton("Fix");
-        fix.setBounds(number.getX(),number.getY()+number.getHeight(),this.getWidth()/2,number.getHeight());
+        fix.setBounds(START_X,number.getY()+HEIGHT,WIDTH/2,HEIGHT);
         fix.addActionListener((event)->{
             PhoneNumberIL temp;
             String name = "";
@@ -30,7 +32,7 @@ public class FixNumber extends JFrame implements MyApp {
             }
         });
         JButton delete = new JButton("delete");
-        delete.setBounds(fix.getX()+fix.getWidth(),fix.getY(), fix.getWidth(), fix.getHeight());
+        delete.setBounds(fix.getX()+fix.getWidth(),fix.getY(), fix.getWidth(), HEIGHT);
         delete.addActionListener((enent)->{
             dispose();
         });

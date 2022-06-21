@@ -3,6 +3,15 @@ public class PhoneNumberIL {
     private String urlToSend;
     private String name;
     private String message, answer, status,pathToImage;
+    private boolean getAnswer;
+
+    public boolean isGetAnswer() {
+        return getAnswer;
+    }
+
+    public void setGetAnswer(boolean getAnswer) {
+        this.getAnswer = getAnswer;
+    }
 
     public String getPathToImage() {
         return pathToImage;
@@ -52,6 +61,7 @@ public class PhoneNumberIL {
             this.name = name;
             this.sent = false;
             this.message = "";
+            this.getAnswer=false;
 
 
         } else {

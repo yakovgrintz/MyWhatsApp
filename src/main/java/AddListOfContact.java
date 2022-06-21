@@ -1,22 +1,22 @@
 import javax.swing.*;
 import java.awt.*;
 
-public class AddListOfContact extends JFrame implements MyApp {
+public class AddListOfContact extends MyAddWindow {
+    public final int REDUCTION=38, NUM_OF_ITEMS=3+1,START_X = 0, START_Y = 0, WIDTH = 150, HEIGHT =(this.getHeight()-REDUCTION)/NUM_OF_ITEMS;
+
     public AddListOfContact(ListOfConatants list) {
-        this.setSize(WIDTH_OF_ADD_WINDOW, HEIGHT_OF_ADD_WINDOW);
-        this.setResizable(false);
-        this.setLayout(null);
-        this.setLocationRelativeTo(null);
+        super();
         JLabel pleaseEnterListOfPhoneNumber = new JLabel("<html>Please Enter List Of Phone Number" +
                 "<br> Separated by a comma<html>");
-        pleaseEnterListOfPhoneNumber.setBounds(0, 0, WIDTH_OF_ADD_WINDOW, 50);
+        pleaseEnterListOfPhoneNumber.setBounds(START_X, START_Y, WIDTH_OF_ADD_WINDOW, HEIGHT);
         this.add(pleaseEnterListOfPhoneNumber);
         JTextArea numbersArea = new JTextArea();
-        numbersArea.setBounds(pleaseEnterListOfPhoneNumber.getX(), pleaseEnterListOfPhoneNumber.getY() + pleaseEnterListOfPhoneNumber.getHeight(), WIDTH_OF_ADD_WINDOW, pleaseEnterListOfPhoneNumber.getHeight() * 4);
+        numbersArea.setBounds(START_X, pleaseEnterListOfPhoneNumber.getY() + HEIGHT, WIDTH_OF_ADD_WINDOW, HEIGHT * 2);
         numbersArea.setBackground(Color.white);
+        numbersArea.setLineWrap(true);
         this.add(numbersArea);
         JButton addToList = new JButton("Add To List");
-        addToList.setBounds(numbersArea.getX(), numbersArea.getY() + numbersArea.getHeight(), WIDTH_OF_ADD_WINDOW, pleaseEnterListOfPhoneNumber.getHeight());
+        addToList.setBounds(START_X, numbersArea.getY() + numbersArea.getHeight(), WIDTH_OF_ADD_WINDOW, HEIGHT);
         addToList.addActionListener((event)->{
             String listOfNumbers = numbersArea.getText();
             createContant(list,listOfNumbers);
@@ -41,6 +41,10 @@ public class AddListOfContact extends JFrame implements MyApp {
 
         }
         dispose();
+    }
+
+    public static void main(String[] args) {
+        AddListOfContact y = new AddListOfContact(new ListOfConatants());
     }
 
 
