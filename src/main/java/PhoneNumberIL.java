@@ -2,7 +2,15 @@ public class PhoneNumberIL {
     private String phoneNumber;
     private String urlToSend;
     private String name;
-    private String message, answer, status;
+    private String message, answer, status,pathToImage;
+
+    public String getPathToImage() {
+        return pathToImage;
+    }
+
+    public void setPathToImage(String pathToImage) {
+        this.pathToImage = pathToImage;
+    }
 
     private boolean sent;
 

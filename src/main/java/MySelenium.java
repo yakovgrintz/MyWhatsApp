@@ -4,6 +4,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 
+import javax.swing.*;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -58,13 +59,23 @@ public class MySelenium {
 
 
                 try {
-
+                    if (temp.getPathToImage() != null) {
+                        WebElement d = driver.findElement(By.className("_1un-p")).findElement(By.className("_26lC3"));
+                        d.click();
+                        driver.findElement(By.className("_1HnQz")).findElement(By.cssSelector("li:nth-child(1) > button > input[type=file]")).sendKeys("C:\\Users\\שלמה\\Pictures\\Screenshots\\y.png");
+                        Thread.sleep(3 * 1000);
+                        driver.findElement(By.className("_1VmmK")).findElement(By.className("_13NKt")).sendKeys(temp.getMessage() + Keys.ENTER);
+                        continue;
+                    }
                     driver.findElement(By.className("_1LbR4")).findElement(By.className("_13NKt")).sendKeys(temp.getMessage() + Keys.ENTER);
                     Thread.sleep(1000);
                     temp.setSent(true);
                     Thread.sleep(10 * 1000);
                 } catch (Exception e2) {
-                    temp.setCanToSend(false);
+                    JOptionPane.showMessageDialog(new JFrame(),
+                            e2.getMessage(),
+                            "error",
+                            JOptionPane.PLAIN_MESSAGE);
                 }
             }
 
