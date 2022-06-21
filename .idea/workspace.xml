@@ -4,19 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3ef93f82-0622-4255-b330-4af5df9028ce" name="Changes" comment="23:08&#10;19/06/22">
-      <change afterPath="$PROJECT_DIR$/src/main/java/EditName.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/EditNames.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/FixNumber.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/MyAddWindow.java" afterDir="false" />
+    <list default="true" id="3ef93f82-0622-4255-b330-4af5df9028ce" name="Changes" comment="01:57&#10;21/06/22">
+      <change afterPath="$PROJECT_DIR$/src/main/java/EditNamesWithTable.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Report.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/Report.xlsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/AddContactWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/AddContactWindow.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/AddListOfContact.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/AddListOfContact.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/AddMessageWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/AddMessageWindow.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/AppPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/AppPanel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ListOfConatants.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ListOfConatants.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/MyApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MyApp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Test.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Test.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -61,23 +54,9 @@
       <recent name="C:\projects\MyWhatsApp" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.EditNames">
-    <configuration name="AddContactWindow" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="AddContactWindow" />
-      <module name="MyWhatsApp" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RunManager" selected="Application.Test">
     <configuration name="AddListOfContact" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="AddListOfContact" />
-      <module name="MyWhatsApp" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="AddMessageWindow" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="AddMessageWindow" />
       <module name="MyWhatsApp" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -90,6 +69,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="EditNamesWithTable" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="EditNamesWithTable" />
+      <module name="MyWhatsApp" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="SeleniumMain" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="SeleniumMain" />
       <module name="MyWhatsApp" />
@@ -97,13 +83,20 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="Test" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Test" />
+      <module name="MyWhatsApp" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.EditNames" />
+        <item itemvalue="Application.Test" />
         <item itemvalue="Application.SeleniumMain" />
+        <item itemvalue="Application.EditNamesWithTable" />
+        <item itemvalue="Application.EditNames" />
         <item itemvalue="Application.AddListOfContact" />
-        <item itemvalue="Application.AddMessageWindow" />
-        <item itemvalue="Application.AddContactWindow" />
       </list>
     </recent_temporary>
   </component>
@@ -118,7 +111,7 @@
       <workItem from="1654525173671" duration="7883000" />
       <workItem from="1654760395521" duration="6621000" />
       <workItem from="1655656339463" duration="9676000" />
-      <workItem from="1655722580852" duration="14240000" />
+      <workItem from="1655722580852" duration="19835000" />
     </task>
     <task id="LOCAL‎00001" summary="11:50&#10;09/06/2022">
       <created>1654764615788</created>
@@ -144,7 +137,13 @@
       <option name="presentableId" value="LOCAL‎00004" />
       <updated>1655669352422</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL‎00005" summary="01:57&#10;21/06/22">
+      <created>1655765951662</created>
+      <option name="number" value="LOCAL‎00005" />
+      <option name="presentableId" value="LOCAL‎00005" />
+      <updated>1655765951662</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -167,6 +166,18 @@
     <MESSAGE value="17:35&#10;19/06/22" />
     <MESSAGE value="19:07&#10;19/06/22" />
     <MESSAGE value="23:08&#10;19/06/22" />
-    <option name="LAST_COMMIT_MESSAGE" value="23:08&#10;19/06/22" />
+    <MESSAGE value="01:57&#10;21/06/22" />
+    <option name="LAST_COMMIT_MESSAGE" value="01:57&#10;21/06/22" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/EditNames.java</url>
+          <line>63</line>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

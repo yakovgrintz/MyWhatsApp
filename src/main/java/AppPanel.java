@@ -19,7 +19,7 @@ public class AppPanel extends JPanel implements MyApp {
     private Object[][] rowData;
     private JScrollPane tp;
     public final int NUMBER_0F_BUTTONS=7;
-    public final int WIDTH_OF_BUTTON = 150, X_VAL_OF_BUTTON = 850, HEIGHT_OF_BUTTON = HEIGHT_OF_WINDOW/NUMBER_0F_BUTTONS-5;
+    public final int WIDTH_OF_BUTTON = 150, X_VAL_OF_BUTTON = 850, HEIGHT_OF_BUTTON = (HEIGHT_OF_WINDOW-38)/NUMBER_0F_BUTTONS;
     public final String[] COLUMN_NAMES = {"Name", "Phone Number", "Meesage", "Status", "Sent With WhatsApp","Answer"};
 
     public AppPanel() {
@@ -53,7 +53,7 @@ public class AppPanel extends JPanel implements MyApp {
         table.setName("data table");
         table.setBackground(Color.white);
         tp = new JScrollPane(table);
-        tp.setSize(WIDTH_OF_WINDOW-WIDTH_OF_BUTTON, HEIGHT_OF_WINDOW);
+        tp.setSize(WIDTH_OF_WINDOW-WIDTH_OF_BUTTON, HEIGHT_OF_WINDOW-38);
         tp.setVisible(true);
         this.add(tp);
         this.add(addContant);
@@ -83,7 +83,7 @@ public class AppPanel extends JPanel implements MyApp {
         editNames.setBounds(X_VAL_OF_BUTTON, addListContant.getY()+HEIGHT_OF_BUTTON,WIDTH_OF_BUTTON,HEIGHT_OF_BUTTON);
         editNames.addActionListener((event)->{
             try {
-                new EditNames(listOfConatants);
+                new EditNamesWithTable(listOfConatants);
             } catch (Exception e) {
                 System.out.println(e.getMessage());
             }

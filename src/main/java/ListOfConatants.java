@@ -3,8 +3,16 @@ import java.util.List;
 
 public class ListOfConatants {
     private List<PhoneNumberIL> list;
+
+    public List<PhoneNumberIL> getList() {
+        return list;
+    }
+
     public ListOfConatants(){
-        list=new LinkedList<PhoneNumberIL>();
+        this.list=new LinkedList<PhoneNumberIL>();
+    }
+    public ListOfConatants(ListOfConatants list){
+        this.list = new LinkedList<PhoneNumberIL>(list.getList());
     }
     public void addPhoneNumberIL(PhoneNumberIL phoneNumberIL){
         list.add(phoneNumberIL);
@@ -28,5 +36,9 @@ public class ListOfConatants {
     }
     public void remove(PhoneNumberIL item){
         this.list.remove(item);
+    }
+
+    public ListOfConatants clone() {
+        return new ListOfConatants(this);
     }
 }
