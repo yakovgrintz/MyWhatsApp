@@ -8,10 +8,7 @@ import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
 import java.awt.*;
-import java.io.File;
 import java.io.FileOutputStream;
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 import java.util.concurrent.atomic.AtomicBoolean;
 
 public class AppPanel extends JPanel implements MyApp {
@@ -24,7 +21,6 @@ public class AppPanel extends JPanel implements MyApp {
     public final String[] COLUMN_NAMES = {"Name", "Phone Number", "Meesage", "Status", "Sent With WhatsApp", "Answer"};
 
     public AppPanel() {
-        //this.setVisible(false);
         this.listOfConatants = new ListOfConatants();
         this.setBounds(START_X, START_Y, WIDTH_OF_WINDOW, HEIGHT_OF_WINDOW);
         this.setLayout(null);
@@ -49,6 +45,7 @@ public class AppPanel extends JPanel implements MyApp {
         updateTable.addActionListener((event) -> {
             updateTable(checkData);
         });
+
         DefaultTableModel model = new DefaultTableModel(COLUMN_NAMES, 0);
         table = new JTable(model);
         table.setName("data table");
@@ -56,16 +53,19 @@ public class AppPanel extends JPanel implements MyApp {
         tp = new JScrollPane(table);
         tp.setSize(WIDTH_OF_WINDOW - WIDTH_OF_BUTTON, HEIGHT_OF_WINDOW - REDUCTION);
         tp.setVisible(true);
+
         this.add(tp);
         this.add(addContant);
         this.add(updateTable);
         this.add(sendToList);
+
         JButton setMessage = new JButton("Set Message");
         setMessage.setBounds(X_VAL_OF_BUTTON, updateTable.getY() + HEIGHT_OF_BUTTON, WIDTH_OF_BUTTON, HEIGHT_OF_BUTTON);
         setMessage.addActionListener((event) -> {
             new AddMessageWindow(this.listOfConatants);
         });
         this.add(setMessage);
+
         JButton exportReport = new JButton("Export Report");
         exportReport.setBounds(X_VAL_OF_BUTTON, setMessage.getY() + HEIGHT_OF_BUTTON, WIDTH_OF_BUTTON, HEIGHT_OF_BUTTON);
         exportReport.addActionListener((event) -> {
@@ -75,21 +75,23 @@ public class AppPanel extends JPanel implements MyApp {
                 throw new RuntimeException(e);
             }
         });
+
         JButton addListContant = new JButton("Add List Of Contants");
         addListContant.setBounds(X_VAL_OF_BUTTON, exportReport.getY() + HEIGHT_OF_BUTTON, WIDTH_OF_BUTTON, HEIGHT_OF_BUTTON);
         addListContant.addActionListener((event) -> {
             new AddListOfContact(listOfConatants);
         });
-        JButton editNames = new JButton("Edit unnamed contacts");
-        editNames.setBounds(X_VAL_OF_BUTTON, addListContant.getY() + HEIGHT_OF_BUTTON, WIDTH_OF_BUTTON, HEIGHT_OF_BUTTON);
-        editNames.addActionListener((event) -> {
+
+        JButton editList = new JButton("Edit List");
+        editList.setBounds(X_VAL_OF_BUTTON, addListContant.getY() + HEIGHT_OF_BUTTON, WIDTH_OF_BUTTON, HEIGHT_OF_BUTTON);
+        editList.addActionListener((event) -> {
             try {
-                new EditNamesWithTable(listOfConatants);
+                new EditListWithTable(listOfConatants);
             } catch (Exception e) {
                 System.out.println(e.getMessage());
             }
         });
-        this.add(editNames);
+        this.add(editList);
         this.add(exportReport);
         this.add(addListContant);
         this.setVisible(true);
@@ -117,29 +119,13 @@ public class AppPanel extends JPanel implements MyApp {
                         model.addRow(newRow);
                     }
                     repaint();
-                    Thread.sleep(30*1000);
+                    Thread.sleep(30*MS);
                 } catch (InterruptedException e) {
                     throw new RuntimeException(e);
                 }
             }
 
         }).start();
-
-    }
-
-    private void updateData() {
-        DRIVER.checkAnswerAndStatus(this.listOfConatants, new AtomicBoolean());
-        new Thread(() -> {
-            while (true) {
-                try {
-                    //updateTable();
-                    Thread.sleep(30 * 1000);
-                } catch (InterruptedException e) {
-                    throw new RuntimeException(e);
-                }
-            }
-        }).start();
-
 
     }
 
@@ -157,7 +143,6 @@ public class AppPanel extends JPanel implements MyApp {
             cell.setCellValue(model.getColumnName(c));
         }
 
-        // write the data rows
         for (int r = 0; r < model.getRowCount(); r++) {
             row = sheet.createRow(r + 1);
             for (int c = 0; c < model.getColumnCount(); c++) {
@@ -170,8 +155,6 @@ public class AppPanel extends JPanel implements MyApp {
                 }
             }
         }
-        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
-        LocalDateTime now = LocalDateTime.now();
         String filePath = "./Report.xlsx";
         FileOutputStream out = new FileOutputStream(filePath);
         workbook.write(out);

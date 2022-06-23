@@ -48,9 +48,6 @@ public class AddMessageWindow extends MyAddWindow {
 
     }
 
-    public static void main(String[] args) {
-        AddMessageWindow test = new AddMessageWindow(new ListOfConatants());
-    }
 
     private void setMessage(ListOfConatants list, String message,String pathToImage) {
         if (message == null || message.equals("")) {

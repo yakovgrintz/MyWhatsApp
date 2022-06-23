@@ -7,4 +7,10 @@ public class MyAddWindow extends JFrame implements MyApp {
         this.setLayout(null);
         this.setLocationRelativeTo(null);
     }
+    public MyAddWindow(int width,int height){
+        this.setSize(width, height);
+        this.setResizable(false);
+        this.setLayout(null);
+        this.setLocationRelativeTo(null);
+    }
 }

@@ -9,12 +9,9 @@ public class AddImageButton extends JButton {
         this.addActionListener((event) -> {
             JFileChooser j = new JFileChooser(FileSystemView.getFileSystemView().getHomeDirectory());
 
-            // invoke the showsOpenDialog function to show the save dialog
             int r = j.showOpenDialog(null);
 
-            // if the user selects a file
             if (r == JFileChooser.APPROVE_OPTION) {
-                // set the label to the path of the selected file
                 pathToImage.set(j.getSelectedFile().getAbsolutePath());
             }
 

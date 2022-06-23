@@ -84,9 +84,7 @@ public class AddContactWindow extends MyAddWindow {
     }
 
 
-    public static void main(String[] args) {
-        AddContactWindow addContactWindow = new AddContactWindow(new ListOfConatants());
-    }
+
 
     private void clearFields(JTextField field1, JTextField field2, JTextField field3) {
         field1.setText("");

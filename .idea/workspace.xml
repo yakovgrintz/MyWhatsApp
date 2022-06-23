@@ -4,17 +4,21 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3ef93f82-0622-4255-b330-4af5df9028ce" name="Changes" comment="02:19&#10;19/06/2022">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="3ef93f82-0622-4255-b330-4af5df9028ce" name="Changes" comment="update dashbord autimitcalli">
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/chromedriver102.exe" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Excel.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Report.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/Report.xlsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/AddContactWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/AddContactWindow.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/AddImageButton.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/AddImageButton.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/AddListOfContact.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/AddListOfContact.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/AddMessageWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/AddMessageWindow.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/AppPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/AppPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/EditNamesWithTable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/EditListWithTable.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/FixNumber.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/FixNumber.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/MyAddWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MyAddWindow.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/MyApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MyApp.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/MySelenium.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MySelenium.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/PhoneNumberIL.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/PhoneNumberIL.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/SeleniumMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SeleniumMain.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/UpdateData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/UpdateData.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,18 +45,24 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "C:/Users/User/Desktop/projects/MyWhatsApp",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\User\Desktop\projects\MyWhatsApp" />
+      <recent name="C:\Users\User\Desktop\projects\MyWhatsApp\src" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\projects\MyWhatsApp" />
     </key>
@@ -72,8 +82,15 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="AppPanel" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="AppPanel" />
+    <configuration name="EditListWithTable" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="EditListWithTable" />
+      <module name="MyWhatsApp" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="FixNumber" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="FixNumber" />
       <module name="MyWhatsApp" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -89,9 +106,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="Application.SeleniumMain" />
+        <item itemvalue="Application.EditListWithTable" />
+        <item itemvalue="Application.FixNumber" />
         <item itemvalue="Application.AddMessageWindow" />
         <item itemvalue="Application.AddContactWindow" />
-        <item itemvalue="Application.AppPanel" />
       </list>
     </recent_temporary>
   </component>
@@ -136,7 +154,13 @@
       <option name="presentableId" value="LOCAL‎00004" />
       <updated>1655594365263</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL‎00005" summary="update dashbord autimitcalli">
+      <created>1656008200974</created>
+      <option name="number" value="LOCAL‎00005" />
+      <option name="presentableId" value="LOCAL‎00005" />
+      <updated>1656008200974</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -158,6 +182,7 @@
     <MESSAGE value="11:50&#10;12/06/2022" />
     <MESSAGE value="22:04&#10;18/06/2022" />
     <MESSAGE value="02:19&#10;19/06/2022" />
-    <option name="LAST_COMMIT_MESSAGE" value="02:19&#10;19/06/2022" />
+    <MESSAGE value="update dashbord autimitcalli" />
+    <option name="LAST_COMMIT_MESSAGE" value="update dashbord autimitcalli" />
   </component>
 </project>

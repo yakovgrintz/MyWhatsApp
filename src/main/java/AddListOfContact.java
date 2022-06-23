@@ -43,9 +43,6 @@ public class AddListOfContact extends MyAddWindow {
         dispose();
     }
 
-    public static void main(String[] args) {
-        AddListOfContact y = new AddListOfContact(new ListOfConatants());
-    }
 
 
 }
