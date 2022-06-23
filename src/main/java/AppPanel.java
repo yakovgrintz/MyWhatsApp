@@ -12,6 +12,7 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.concurrent.atomic.AtomicBoolean;
 
 public class AppPanel extends JPanel implements MyApp {
     private ListOfConatants listOfConatants;
@@ -24,10 +25,11 @@ public class AppPanel extends JPanel implements MyApp {
 
     public AppPanel() {
         //this.setVisible(false);
-
         this.listOfConatants = new ListOfConatants();
         this.setBounds(START_X, START_Y, WIDTH_OF_WINDOW, HEIGHT_OF_WINDOW);
         this.setLayout(null);
+        AtomicBoolean checkData = new AtomicBoolean(false);
+
 
         JButton addContant = new JButton("Add Contant");
         addContant.addActionListener((event) -> {
@@ -35,18 +37,17 @@ public class AppPanel extends JPanel implements MyApp {
         });
         addContant.setBounds(X_VAL_OF_BUTTON, START_Y, WIDTH_OF_BUTTON, HEIGHT_OF_BUTTON);
         this.add(addContant);
-        UpdateData updateData = new UpdateData(listOfConatants, this);
+
         JButton sendToList = new JButton("Send To List");
         sendToList.setBounds(X_VAL_OF_BUTTON, addContant.getY() + HEIGHT_OF_BUTTON, WIDTH_OF_BUTTON, HEIGHT_OF_BUTTON);
         sendToList.addActionListener((event) -> {
             DRIVER.sendToList(listOfConatants);
-            updateData.start();
-
+            checkData.set(true);
         });
         JButton updateTable = new JButton("Update Table");
         updateTable.setBounds(X_VAL_OF_BUTTON, sendToList.getY() + HEIGHT_OF_BUTTON, WIDTH_OF_BUTTON, HEIGHT_OF_BUTTON);
         updateTable.addActionListener((event) -> {
-            updateTable();
+            updateTable(checkData);
         });
         DefaultTableModel model = new DefaultTableModel(COLUMN_NAMES, 0);
         table = new JTable(model);
@@ -102,25 +103,43 @@ public class AppPanel extends JPanel implements MyApp {
     }
 
 
-    public void updateTable() {
-        DefaultTableModel model = (DefaultTableModel) table.getModel();
-        model.setRowCount(0);
-        for (int i = 0; i < this.listOfConatants.size(); i++) {
-            PhoneNumberIL temp = this.listOfConatants.getConants(i);
-            Object[] newRow = {temp.getName(), temp.getPhoneNumber(), temp.getMessage(), temp.getStatus(), temp.isSent(), temp.getAnswer()};
-            model.addRow(newRow);
-        }
-        repaint();
+    public void updateTable(AtomicBoolean updateData) {
+        new Thread(()->{
+            while (true){
+                try {
+                    DRIVER.checkAnswerAndStatus(this.listOfConatants, updateData);
+
+                    DefaultTableModel model = (DefaultTableModel) table.getModel();
+                    model.setRowCount(0);
+                    for (int i = 0; i < this.listOfConatants.size(); i++) {
+                        PhoneNumberIL temp = this.listOfConatants.getConants(i);
+                        Object[] newRow = {temp.getName(), temp.getPhoneNumber(), temp.getMessage(), temp.getStatus(), temp.isSent(), temp.getAnswer()};
+                        model.addRow(newRow);
+                    }
+                    repaint();
+                    Thread.sleep(30*1000);
+                } catch (InterruptedException e) {
+                    throw new RuntimeException(e);
+                }
+            }
+
+        }).start();
+
     }
 
     private void updateData() {
-
+        DRIVER.checkAnswerAndStatus(this.listOfConatants, new AtomicBoolean());
+        new Thread(() -> {
+            while (true) {
                 try {
-                    DRIVER.checkAnswerAndStatus(this.listOfConatants);
-                    Thread.sleep(10 * 1000);
+                    //updateTable();
+                    Thread.sleep(30 * 1000);
                 } catch (InterruptedException e) {
-                    //throw new RuntimeException(e);
+                    throw new RuntimeException(e);
                 }
+            }
+        }).start();
+
 
     }
 

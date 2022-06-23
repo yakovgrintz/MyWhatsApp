@@ -4,6 +4,15 @@ public class PhoneNumberIL {
     private String name;
     private String message, answer, status,pathToImage;
     private boolean getAnswer;
+    private boolean needCheck;
+
+    public boolean isNeedCheck() {
+        return needCheck;
+    }
+
+    public void setNeedCheck(boolean needCheck) {
+        this.needCheck = needCheck;
+    }
 
     public boolean isGetAnswer() {
         return getAnswer;
@@ -62,6 +71,7 @@ public class PhoneNumberIL {
             this.sent = false;
             this.message = "";
             this.getAnswer=false;
+            this.needCheck=false;
 
 
         } else {
@@ -116,5 +126,10 @@ public class PhoneNumberIL {
 
     public void setCanToSend(boolean canToSend) {
         this.canToSend = canToSend;
+    }
+    public void setAllToSent(){
+        this.canToSend=true;
+        this.sent=true;
+        this.needCheck=true;
     }
 }

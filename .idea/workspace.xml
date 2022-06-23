@@ -4,8 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3ef93f82-0622-4255-b330-4af5df9028ce" name="Changes" comment="16:58&#10;21/06/22">
+    <list default="true" id="3ef93f82-0622-4255-b330-4af5df9028ce" name="Changes" comment="02:19&#10;19/06/2022">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Excel.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/Report.xlsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/AddContactWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/AddContactWindow.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/AppPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/AppPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/MySelenium.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MySelenium.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/PhoneNumberIL.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/PhoneNumberIL.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/SeleniumMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SeleniumMain.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/UpdateData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/UpdateData.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -15,6 +24,7 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
@@ -26,20 +36,16 @@
     <option name="stateVersion" value="1" />
   </component>
   <component name="ProjectId" id="2ACszgAfBuqNbxygK2MpMor0zUP" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
-    <ConfirmationsSetting value="2" id="Add" />
-  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/שלמה/Desktop/components-FileChooserDemo2Project&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -59,13 +65,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="AddListOfContact" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="AddListOfContact" />
-      <module name="MyWhatsApp" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="AddMessageWindow" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="AddMessageWindow" />
       <module name="MyWhatsApp" />
@@ -73,8 +72,8 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="EditNamesWithTable" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="EditNamesWithTable" />
+    <configuration name="AppPanel" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="AppPanel" />
       <module name="MyWhatsApp" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -90,10 +89,9 @@
     <recent_temporary>
       <list>
         <item itemvalue="Application.SeleniumMain" />
-        <item itemvalue="Application.EditNamesWithTable" />
         <item itemvalue="Application.AddMessageWindow" />
-        <item itemvalue="Application.AddListOfContact" />
         <item itemvalue="Application.AddContactWindow" />
+        <item itemvalue="Application.AppPanel" />
       </list>
     </recent_temporary>
   </component>
@@ -107,10 +105,12 @@
       <updated>1654525170077</updated>
       <workItem from="1654525173671" duration="7883000" />
       <workItem from="1654760395521" duration="6621000" />
-      <workItem from="1655656339463" duration="9676000" />
-      <workItem from="1655722580852" duration="24237000" />
-      <workItem from="1655808522073" duration="8869000" />
-      <workItem from="1655818509795" duration="2515000" />
+      <workItem from="1655061736256" duration="209000" />
+      <workItem from="1655370115259" duration="5716000" />
+      <workItem from="1655388799147" duration="1841000" />
+      <workItem from="1655575487326" duration="5221000" />
+      <workItem from="1655581543218" duration="12396000" />
+      <workItem from="1655625406458" duration="3446000" />
     </task>
     <task id="LOCAL‎00001" summary="11:50&#10;09/06/2022">
       <created>1654764615788</created>
@@ -118,67 +118,25 @@
       <option name="presentableId" value="LOCAL‎00001" />
       <updated>1654764615788</updated>
     </task>
-    <task id="LOCAL‎00002" summary="17:35&#10;19/06/22">
-      <created>1655649338575</created>
+    <task id="LOCAL‎00002" summary="11:50&#10;12/06/2022">
+      <created>1655061857920</created>
       <option name="number" value="LOCAL‎00002" />
       <option name="presentableId" value="LOCAL‎00002" />
-      <updated>1655649338575</updated>
+      <updated>1655061857920</updated>
     </task>
-    <task id="LOCAL‎00003" summary="19:07&#10;19/06/22">
-      <created>1655654881271</created>
+    <task id="LOCAL‎00003" summary="22:04&#10;18/06/2022">
+      <created>1655579085393</created>
       <option name="number" value="LOCAL‎00003" />
       <option name="presentableId" value="LOCAL‎00003" />
-      <updated>1655654881271</updated>
+      <updated>1655579085393</updated>
     </task>
-    <task id="LOCAL‎00004" summary="23:08&#10;19/06/22">
-      <created>1655669352422</created>
+    <task id="LOCAL‎00004" summary="02:19&#10;19/06/2022">
+      <created>1655594365263</created>
       <option name="number" value="LOCAL‎00004" />
       <option name="presentableId" value="LOCAL‎00004" />
-      <updated>1655669352422</updated>
+      <updated>1655594365263</updated>
     </task>
-    <task id="LOCAL‎00005" summary="01:57&#10;21/06/22">
-      <created>1655765951662</created>
-      <option name="number" value="LOCAL‎00005" />
-      <option name="presentableId" value="LOCAL‎00005" />
-      <updated>1655765951662</updated>
-    </task>
-    <task id="LOCAL‎00006" summary="03:32&#10;21/06/22">
-      <created>1655771571141</created>
-      <option name="number" value="LOCAL‎00006" />
-      <option name="presentableId" value="LOCAL‎00006" />
-      <updated>1655771571141</updated>
-    </task>
-    <task id="LOCAL‎00007" summary="03:38&#10;21/06/22">
-      <created>1655771893129</created>
-      <option name="number" value="LOCAL‎00007" />
-      <option name="presentableId" value="LOCAL‎00007" />
-      <updated>1655771893129</updated>
-    </task>
-    <task id="LOCAL‎00008" summary="03:41&#10;21/06/22">
-      <created>1655772075522</created>
-      <option name="number" value="LOCAL‎00008" />
-      <option name="presentableId" value="LOCAL‎00008" />
-      <updated>1655772075522</updated>
-    </task>
-    <task id="LOCAL‎00009" summary="12:05&#10;21/06/22">
-      <created>1655802368006</created>
-      <option name="number" value="LOCAL‎00009" />
-      <option name="presentableId" value="LOCAL‎00009" />
-      <updated>1655802368006</updated>
-    </task>
-    <task id="LOCAL‎00010" summary="12:10&#10;21/06/22">
-      <created>1655802610303</created>
-      <option name="number" value="LOCAL‎00010" />
-      <option name="presentableId" value="LOCAL‎00010" />
-      <updated>1655802610303</updated>
-    </task>
-    <task id="LOCAL‎00011" summary="16:58&#10;21/06/22">
-      <created>1655819944873</created>
-      <option name="number" value="LOCAL‎00011" />
-      <option name="presentableId" value="LOCAL‎00011" />
-      <updated>1655819944873</updated>
-    </task>
-    <option name="localTasksCounter" value="12" />
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -196,29 +154,10 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="11:50&#10;09/06/2022" />
-    <MESSAGE value="17:35&#10;19/06/22" />
-    <MESSAGE value="19:07&#10;19/06/22" />
-    <MESSAGE value="23:08&#10;19/06/22" />
-    <MESSAGE value="01:57&#10;21/06/22" />
-    <MESSAGE value="03:32&#10;21/06/22" />
-    <MESSAGE value="03:38&#10;21/06/22" />
-    <MESSAGE value="03:41&#10;21/06/22" />
-    <MESSAGE value="12:05&#10;21/06/22" />
-    <MESSAGE value="12:10&#10;21/06/22" />
-    <MESSAGE value="16:58&#10;21/06/22" />
-    <option name="LAST_COMMIT_MESSAGE" value="16:58&#10;21/06/22" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/Garbage/EditNames.java</url>
-          <line>63</line>
-          <option name="timeStamp" value="4" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <MESSAGE value="11:50&#10;12/06/2022" />
+    <MESSAGE value="22:04&#10;18/06/2022" />
+    <MESSAGE value="02:19&#10;19/06/2022" />
+    <option name="LAST_COMMIT_MESSAGE" value="02:19&#10;19/06/2022" />
   </component>
 </project>

@@ -5,8 +5,8 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 
 import javax.swing.*;
-import java.util.LinkedList;
 import java.util.List;
+import java.util.concurrent.atomic.AtomicBoolean;
 
 public class MySelenium {
     ChromeDriver driver;
@@ -14,8 +14,8 @@ public class MySelenium {
 
     public MySelenium() {
         ChromeOptions options = new ChromeOptions();
-        options.addArguments("user-data-dir=C:\\Users\\שלמה\\AppData\\Local\\Google\\Chrome\\User Data\\Profile 1");
-        //options.addArguments("user-data-dir=C:/Users/User/AppData/Local/Google/Chrome/User Data");
+        //options.addArguments("user-data-dir=C:\\Users\\שלמה\\AppData\\Local\\Google\\Chrome\\User Data\\Profile 1");
+        options.addArguments("user-data-dir=C:/Users/User/AppData/Local/Google/Chrome/User Data");
         this.driver = new ChromeDriver(options);
     }
 
@@ -36,7 +36,7 @@ public class MySelenium {
                 Thread.sleep(1000);
                 //System.out.println(checkStatus());
                 Thread.sleep(10 * 1000);
-                getAnswerMessage();
+                //getAnswerMessage();
             } catch (Exception e) {
                 temp.setCanToSend(false);
                 System.out.println("yakov");
@@ -52,25 +52,24 @@ public class MySelenium {
             PhoneNumberIL temp = list.getConants(i);
             try {
                 driver.get(temp.getUrlToSend());
-                Thread.sleep(10 * 1000);
+                Thread.sleep(5 * 1000);
                 driver.findElement(By.className("_3J6wB")).findElement(By.className("_20C5O")).click();
                 temp.setCanToSend(false);
             } catch (Exception e) {
-
-
                 try {
                     if (temp.getPathToImage() != null) {
                         WebElement d = driver.findElement(By.className("_1un-p")).findElement(By.className("_26lC3"));
                         d.click();
                         driver.findElement(By.className("_1HnQz")).findElement(By.cssSelector("li:nth-child(1) > button > input[type=file]")).sendKeys(temp.getPathToImage());
-                        Thread.sleep(3 * 1000);
+                        Thread.sleep(5 * 1000);
                         driver.findElement(By.className("_1VmmK")).findElement(By.className("_13NKt")).sendKeys(temp.getMessage() + Keys.ENTER);
+                        temp.setAllToSent();
                         continue;
                     }
                     driver.findElement(By.className("_1LbR4")).findElement(By.className("_13NKt")).sendKeys(temp.getMessage() + Keys.ENTER);
                     Thread.sleep(1000);
-                    temp.setSent(true);
-                    Thread.sleep(10 * 1000);
+                    temp.setAllToSent();
+                    Thread.sleep(1 * 1000);
                 } catch (Exception e2) {
                     JOptionPane.showMessageDialog(new JFrame(),
                             e2.getMessage(),
@@ -86,7 +85,7 @@ public class MySelenium {
         do {
             driver.get(WHATSAPP_URL_HOME_PAGE);
             try {
-                Thread.sleep(30 * 1000);
+                Thread.sleep(10 * 1000);
             } catch (InterruptedException e) {
                 throw new RuntimeException(e);
             }
@@ -193,28 +192,62 @@ public class MySelenium {
     }
 
 
-    public void checkAnswerAndStatus(ListOfConatants list) {
+    public void checkAnswerAndStatus(ListOfConatants list, AtomicBoolean run) {
         if (list == null) {
             throw new RuntimeException("the list is null");
         }
         for (int i = 0; i < list.size(); i++) {
+
             try {
                 PhoneNumberIL temp = list.getConants(i);
                 if (!temp.isSent()) {
                     continue;
                 }
-                if (temp.isGetAnswer()){
+                if (!temp.isNeedCheck()) {
                     continue;
                 }
-                this.driver.get(temp.getUrlToSend());
+                driver.get(temp.getUrlToSend());
                 Thread.sleep(5000);
                 checkAndSetStatus(temp);
                 checkAndSetAnswer(temp);
-                Thread.sleep(5000);
+                Thread.sleep(1000);
+                if (temp.isGetAnswer()|!temp.isCanToSend()){
+                    temp.setNeedCheck(false);
+                }
+                continue;
             } catch (Exception e) {
                 System.out.println(e.getMessage());
             }
 
         }
+
+    }
+
+    public void checkAnswerAndStatus2(ListOfConatants list) {
+        for (int i = 0; i < list.size(); i++) {
+
+            try {
+                PhoneNumberIL temp = list.getConants(i);
+                if (!temp.isSent()) {
+                    continue;
+                }
+                if (!temp.isNeedCheck()) {
+                    continue;
+                }
+                driver.get(temp.getUrlToSend());
+                Thread.sleep(3000);
+                checkAndSetStatus(temp);
+                checkAndSetAnswer(temp);
+                Thread.sleep(1000);
+                if (temp.isGetAnswer()|!temp.isCanToSend()){
+                    temp.setNeedCheck(false);
+                }
+                continue;
+            } catch (Exception e) {
+                System.out.println(e.getMessage());
+            }
+        }
+
+
     }
 }
